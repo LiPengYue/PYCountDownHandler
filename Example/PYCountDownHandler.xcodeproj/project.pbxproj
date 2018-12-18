@@ -24,6 +24,7 @@
 		861288BB21C8EA7200C6BCDC /* PYCountDownModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 861288B521C8EA7100C6BCDC /* PYCountDownModel.m */; };
 		861288BC21C8EA7200C6BCDC /* PYCountDownTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 861288B821C8EA7100C6BCDC /* PYCountDownTableViewCell.m */; };
 		861288BF21C8EEDD00C6BCDC /* PYHandleDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 861288BE21C8EEDD00C6BCDC /* PYHandleDate.m */; };
+		861288C321C8F54100C6BCDC /* PYCountDownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 861288C221C8F54100C6BCDC /* PYCountDownViewController.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		C1A5C8602D9B639774739E7B /* Pods_PYCountDownHandler_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FF5AF742D762B18EC38C378 /* Pods_PYCountDownHandler_Example.framework */; };
 		F9DF2853DAE77056EF3D4530 /* Pods_PYCountDownHandler_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C903CBE499B43F00329FB1 /* Pods_PYCountDownHandler_Tests.framework */; };
@@ -70,6 +71,8 @@
 		861288B821C8EA7100C6BCDC /* PYCountDownTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PYCountDownTableViewCell.m; sourceTree = "<group>"; };
 		861288BD21C8EEDD00C6BCDC /* PYHandleDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYHandleDate.h; sourceTree = "<group>"; };
 		861288BE21C8EEDD00C6BCDC /* PYHandleDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PYHandleDate.m; sourceTree = "<group>"; };
+		861288C121C8F54100C6BCDC /* PYCountDownViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PYCountDownViewController.h; sourceTree = "<group>"; };
+		861288C221C8F54100C6BCDC /* PYCountDownViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PYCountDownViewController.m; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9E217A3A6C25931EA84EECAC /* PYCountDownHandler.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = PYCountDownHandler.podspec; path = ../PYCountDownHandler.podspec; sourceTree = "<group>"; };
 		C94088C0FA6C08526FF0AE36 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -141,8 +144,8 @@
 		6003F593195388D20070C39A /* Example for PYCountDownHandler */ = {
 			isa = PBXGroup;
 			children = (
-				861288B121C8EA7100C6BCDC /* Demo */,
 				861288B021C8EA2E00C6BCDC /* ther */,
+				861288B121C8EA7100C6BCDC /* Demo */,
 				6003F5A5195388D20070C39A /* PYViewController.h */,
 				6003F5A6195388D20070C39A /* PYViewController.m */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -217,10 +220,11 @@
 		861288B121C8EA7100C6BCDC /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				861288BD21C8EEDD00C6BCDC /* PYHandleDate.h */,
-				861288BE21C8EEDD00C6BCDC /* PYHandleDate.m */,
+				861288C421C8F54700C6BCDC /* DataHandler */,
 				861288B321C8EA7100C6BCDC /* Model */,
 				861288B621C8EA7100C6BCDC /* Views */,
+				861288C121C8F54100C6BCDC /* PYCountDownViewController.h */,
+				861288C221C8F54100C6BCDC /* PYCountDownViewController.m */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -241,6 +245,15 @@
 				861288B821C8EA7100C6BCDC /* PYCountDownTableViewCell.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		861288C421C8F54700C6BCDC /* DataHandler */ = {
+			isa = PBXGroup;
+			children = (
+				861288BD21C8EEDD00C6BCDC /* PYHandleDate.h */,
+				861288BE21C8EEDD00C6BCDC /* PYHandleDate.m */,
+			);
+			path = DataHandler;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -409,6 +422,7 @@
 				6003F5A7195388D20070C39A /* PYViewController.m in Sources */,
 				861288BF21C8EEDD00C6BCDC /* PYHandleDate.m in Sources */,
 				861288BB21C8EA7200C6BCDC /* PYCountDownModel.m in Sources */,
+				861288C321C8F54100C6BCDC /* PYCountDownViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				861288BC21C8EA7200C6BCDC /* PYCountDownTableViewCell.m in Sources */,
 			);

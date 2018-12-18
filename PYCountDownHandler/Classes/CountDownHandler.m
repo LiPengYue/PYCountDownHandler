@@ -52,8 +52,16 @@ static NSString *const K_countDownHandler_startCountDown = @"K_countDownHandler_
     
     __weak typeof(delegate) weakDelegate = delegate;
     __weak typeof(self) weakSelf = self;
-    
-    if ([self.delegates containsObject:delegate]) return;
+    if ([weakSelf getDelegateStartCountDownTime:weakDelegate] < 0) {
+        [weakSelf setDelegateStartCountDownTime:delegate];
+    }
+    if([weakDelegate respondsToSelector:@selector(countDownHandler:andCurrentUntil:)]) {
+        CGFloat currentUntil = weakSelf.currentTime - [weakSelf getDelegateStartCountDownTime:delegate];
+        [weakDelegate countDownHandler:weakSelf andCurrentUntil:currentUntil];
+    }
+    if ([self.delegates containsObject:delegate]) {
+        return;
+    }
     
     if (self.delegates.count > self.targetMaxCount) {
         [self endReceiveWithDelegate:self.delegates.firstObject];
@@ -61,13 +69,6 @@ static NSString *const K_countDownHandler_startCountDown = @"K_countDownHandler_
     
     [self lock:^{
         [weakSelf.delegates addObject:weakDelegate];
-        if ([weakSelf getDelegateStartCountDownTime:weakDelegate] < 0) {
-            [weakSelf setDelegateStartCountDownTime:delegate];
-        }
-        if([weakDelegate respondsToSelector:@selector(countDownHandler:andCurrentUntil:)]) {
-            CGFloat currentUntil = weakSelf.currentTime - [weakSelf getDelegateStartCountDownTime:delegate];
-            [weakDelegate countDownHandler:weakSelf andCurrentUntil:currentUntil];
-        }
     }];
 }
 
@@ -91,7 +92,7 @@ static NSString *const K_countDownHandler_startCountDown = @"K_countDownHandler_
                 
                 if ([obj respondsToSelector:@selector(countDownHandler:andCurrentUntil:)]) {
                     dispatch_async(dispatch_get_main_queue(), ^{
-                         CGFloat currentUntil = weakSelf.currentTime - [weakSelf getDelegateStartCountDownTime:obj];
+                        CGFloat currentUntil = weakSelf.currentTime - [weakSelf getDelegateStartCountDownTime:obj];
                         [obj countDownHandler:weakSelf andCurrentUntil:currentUntil];
                     });
                 }
@@ -111,7 +112,7 @@ static NSString *const K_countDownHandler_startCountDown = @"K_countDownHandler_
 - (void) createTimer {
     
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0);
- 
+    
     dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
     self.timer = timer;
     /*

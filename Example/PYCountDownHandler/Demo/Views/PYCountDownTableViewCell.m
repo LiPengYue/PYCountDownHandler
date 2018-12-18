@@ -13,7 +13,6 @@
 
 @interface PYCountDownTableViewCell ()
 @property (nonatomic,strong) UILabel *countDownLabel;
-@property (nonatomic,strong) UIImageView *countDownImageView;
 @end
 
 @implementation PYCountDownTableViewCell
@@ -44,15 +43,10 @@
     return _countDownLabel;
 }
 
+
 - (void) setModel:(PYCountDownModel *)model {
     _model = model;
     __weak typeof(self)weakSelf = self;
-    if (!self.countDownLabel.text.length) {
-        [[PYHandleDate sharedHandleDate] compareDateWithDateFormatter:@"yyyy-MM-dd HH:mm:ss" andCompareDate:@0 andSecondCompareDate:@(weakSelf.model.countDownNum) andDateBlock:^(NSInteger year, NSInteger month, NSInteger day, NSInteger hour, NSInteger minute, NSInteger second, NSString *dateStr) {
-            weakSelf.countDownLabel.text = dateStr;
-        }];
-    }
-    
     [self.model didSetCountDownNumFunc:^{
         
         CGFloat countDown = weakSelf.model.countDownNum - weakSelf.model.currentCountDown;
@@ -65,19 +59,11 @@
             weakSelf.countDownLabel.text = dateStr;
         }];
     }];
-
+    
 }
 
 - (void)dealloc {
     NSLog(@"✅%@",NSStringFromClass([self class]));
 }
 
-- (UIImageView *) countDownImageView {
-    if (!_countDownImageView) {
-        _countDownImageView =
-        (UIImageView *)UIImageView
-        .new;
-    }
-    return _countDownImageView;
-}
 @end
