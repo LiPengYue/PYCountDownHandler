@@ -1,0 +1,6 @@
+framework module Pods_PYCountDownHandler_Example {
+  umbrella header "Pods-PYCountDownHandler_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
