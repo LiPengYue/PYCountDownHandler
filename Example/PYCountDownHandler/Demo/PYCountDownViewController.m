@@ -177,7 +177,7 @@ UITableViewDataSource
 // MARK:life cycles
 - (void)dealloc {
     [self.countDownHandler end];
-    NSLog(@"✅%@",NSStringFromClass([self class]));
+    NSLog(@"✅销毁：%@",NSStringFromClass([self class]));
 }
 @end
 

@@ -20,7 +20,7 @@
 }
 
 - (void)dealloc {
-    NSLog(@"✅%@",NSStringFromClass([self class]));
+    NSLog(@"✅销毁：%@",NSStringFromClass([self class]));
 }
 - (void)countDownHandler:(CountDownHandler *)handler andCurrentUntil:(CGFloat)until{
     self.currentCountDown = until;

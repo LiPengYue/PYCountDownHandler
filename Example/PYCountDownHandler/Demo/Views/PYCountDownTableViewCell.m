@@ -63,7 +63,7 @@
 }
 
 - (void)dealloc {
-    NSLog(@"✅%@",NSStringFromClass([self class]));
+    NSLog(@"✅销毁：%@",NSStringFromClass([self class]));
 }
 
 @end

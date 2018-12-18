@@ -131,7 +131,7 @@ static NSString *const K_countDownHandler_startCountDown = @"K_countDownHandler_
 }
 
 - (void)dealloc {
-    NSLog(@"✅%@",NSStringFromClass([self class]));
+    NSLog(@"✅销毁：%@",NSStringFromClass([self class]));
 }
 
 - (NSArray *) getCurrentDelegates {
