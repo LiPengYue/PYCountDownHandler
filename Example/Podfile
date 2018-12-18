@@ -8,6 +8,6 @@ target 'PYCountDownHandler_Example' do
   target 'PYCountDownHandler_Tests' do
     inherit! :search_paths
 
-    pod 'FBSnapshotTestCase'
+    #pod 'FBSnapshotTestCase'
   end
 end
