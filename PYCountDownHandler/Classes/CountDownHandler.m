@@ -85,16 +85,16 @@ static NSString *const K_countDownHandler_startCountDown = @"K_countDownHandler_
         self.currentTime += self.timeInterval;
         __weak typeof (self)weakSelf = self;
         
-        dispatch_queue_t q = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0);
+        //        dispatch_queue_t q = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0);
         
-        dispatch_async(q, ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
             [self.delegates enumerateObjectsUsingBlock:^(id<CountDownHandlerDelegate>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 
                 if ([obj respondsToSelector:@selector(countDownHandler:andCurrentUntil:)]) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        CGFloat currentUntil = weakSelf.currentTime - [weakSelf getDelegateStartCountDownTime:obj];
-                        [obj countDownHandler:weakSelf andCurrentUntil:currentUntil];
-                    });
+                    //                    dispatch_async(dispatch_get_main_queue(), ^{
+                    CGFloat currentUntil = weakSelf.currentTime - [weakSelf getDelegateStartCountDownTime:obj];
+                    [obj countDownHandler:weakSelf andCurrentUntil:currentUntil];
+                    //                    });
                 }
             }];
         });
