@@ -81,6 +81,7 @@ static NSString *const K_countDownHandler_startCountDown = @"K_countDownHandler_
 }
 
 - (void)timerAction {
+    
     [self lock:^{
         self.currentTime += self.timeInterval;
         __weak typeof (self)weakSelf = self;
