@@ -12,7 +12,7 @@
 #import "CountDownHandler.h"
 
 
-@interface PYCountDownTableViewCell : UITableViewCell<CountDownHandlerDelegate>
+@interface PYCountDownTableViewCell : UITableViewCell<CountDownHandlerViewDelegate>
 @property (nonatomic,strong) PYCountDownModel *model;
 @property (nonatomic,strong) NSNumber *countDownNumber;
 @property (nonatomic,assign) CGFloat currentCountDown;

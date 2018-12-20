@@ -46,20 +46,41 @@
 
 - (void) setModel:(PYCountDownModel *)model {
     _model = model;
-    __weak typeof(self)weakSelf = self;
-    [self.model didSetCountDownNumFunc:^{
-        
-        CGFloat countDown = weakSelf.model.countDownNum - weakSelf.model.currentCountDown;
+//    __weak typeof(self)weakSelf = self;
+//    [self.model didSetCountDownNumFunc:^{
+//        weakSelf.countDownLabel.hidden = weakSelf.model.isShowCountDown;
+//        CGFloat countDown = weakSelf.model.countDownNum - weakSelf.model.currentCountDown;
+//        if (countDown <= 0) {
+//            weakSelf.countDownLabel.text = @"活动结束";
+//            return;
+//        }
+//
+//        [[PYHandleDate sharedHandleDate] compareDateWithDateFormatter:@"yyyy-MM-dd HH:mm:ss" andCompareDate:@0 andSecondCompareDate:@(countDown) andDateBlock:^(NSInteger year, NSInteger month, NSInteger day, NSInteger hour, NSInteger minute, NSInteger second, NSString *dateStr) {
+//            weakSelf.countDownLabel.text = dateStr;
+//        }];
+//    }];
+    
+}
+
+
+- (void)countDownHandler:(CountDownHandler *)handler andDataSource:(id<CountDownHandlerDataSource>)dataSource {
+    
+    PYCountDownModel *model = dataSource;
+    if ([model isKindOfClass:[PYCountDownModel class]]) {
+        self.countDownLabel.hidden = model.isShowCountDown;
+        CGFloat countDown = model.currentCountDown;
         if (countDown <= 0) {
-            weakSelf.countDownLabel.text = @"活动结束";
+            self.countDownLabel.text = @"活动结束";
             return;
         }
         
         [[PYHandleDate sharedHandleDate] compareDateWithDateFormatter:@"yyyy-MM-dd HH:mm:ss" andCompareDate:@0 andSecondCompareDate:@(countDown) andDateBlock:^(NSInteger year, NSInteger month, NSInteger day, NSInteger hour, NSInteger minute, NSInteger second, NSString *dateStr) {
-            weakSelf.countDownLabel.text = dateStr;
+            self.countDownLabel.text = dateStr;
         }];
-    }];
-    
+    }
+}
+- (id<CountDownHandlerDataSource>)getViewDelegateMapDataSource {
+    return self.model;
 }
 
 - (void)dealloc {

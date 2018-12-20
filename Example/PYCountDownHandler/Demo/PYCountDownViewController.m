@@ -53,7 +53,7 @@ UITableViewDataSource
     for (int i = 0; i < 20; i ++) {
         PYCountDownModel *model = [PYCountDownModel new];
         model.countDownNum = 30;
-        
+        model.isShowCountDown = i%2;
         [arrayM addObject:model];
     }
     self.modelArray = arrayM.copy;
@@ -116,7 +116,7 @@ UITableViewDataSource
             for (int i = 0; i < 20; i ++) {
                 PYCountDownModel *model = [PYCountDownModel new];
                 model.countDownNum = 340;
-                
+                model.isShowCountDown = i%2;
                 [arrayM addObject:model];
             }
             self.modelArray = arrayM.copy;
@@ -129,7 +129,7 @@ UITableViewDataSource
 // MARK: properties get && set
 - (void)setModelArray:(NSArray<PYCountDownModel *> *)modelArray {
     _modelArray = modelArray;
-    [self.countDownHandler registerCountDownEventWithDelegates:modelArray];
+    [self.countDownHandler registerCountDownEventWithDataSources:modelArray];
     [self.tableView reloadData];
 }
 
@@ -166,13 +166,11 @@ UITableViewDataSource
     
     if ([cell isKindOfClass:[PYCountDownTableViewCell class]]) {
         PYCountDownModel *model = self.modelArray[indexPath.row];
+        [self.countDownHandler registerCountDownEventWithDelegate:cell];
         cell.model = model;
-        [self.countDownHandler registerCountDownEventWithDelegate: cell.model];
     }
     return cell;
 }
-
-
 
 // MARK:life cycles
 - (void)dealloc {

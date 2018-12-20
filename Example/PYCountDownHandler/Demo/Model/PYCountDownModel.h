@@ -10,9 +10,10 @@
 @class CountDownHandler;
 @class PYCountDownTableViewCell;
 #include "CountDownHandler.h"
-@interface PYCountDownModel : NSObject<CountDownHandlerDelegate>
+@interface PYCountDownModel : NSObject<CountDownHandlerDataSource>
 @property (nonatomic,assign) NSInteger countDownNum;
+@property (nonatomic,assign) NSInteger isShowCountDown;
 @property (nonatomic,assign) CGFloat currentCountDown;
-- (void) didSetCountDownNumFunc: (void(^)(void))block;
-- (void) countDownFunc: (void(^)(CountDownHandler *handler)) block;
+//- (void) didSetCountDownNumFunc: (void(^)(void))block;
+//- (void) countDownFunc: (void(^)(CountDownHandler *handler)) block;
 @end

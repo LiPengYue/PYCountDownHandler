@@ -13,7 +13,8 @@ static NSString *const K_countDownHandler_startCountDown = @"K_countDownHandler_
 
 
 @interface CountDownHandler()
-@property (nonatomic,strong) NSMutableArray <id<CountDownHandlerDelegate>>*delegates;
+@property (nonatomic,strong) NSMutableArray <id<CountDownHandlerViewDelegate>>*delegates;
+@property (nonatomic,strong) NSMutableArray <id<CountDownHandlerDataSource>>*dataSources;
 @property (nonatomic,strong) dispatch_semaphore_t semaphore;
 @property (nonatomic, strong) dispatch_source_t timer;
 @end
@@ -34,7 +35,6 @@ static NSString *const K_countDownHandler_startCountDown = @"K_countDownHandler_
         [self createTimer];
     }
 }
-
 - (void) end {
     if (self.timer) {
         dispatch_cancel(self.timer);
@@ -42,29 +42,76 @@ static NSString *const K_countDownHandler_startCountDown = @"K_countDownHandler_
     }
 }
 
-- (void)registerCountDownEventWithDelegates:(NSArray<id<CountDownHandlerDelegate>> *)delegates {
+- (void) registerCountDownEventWithDataSources:(NSArray<id<CountDownHandlerDataSource>> *)dataSources {
+    __weak typeof (self)weakSelf = self;
+    [dataSources enumerateObjectsUsingBlock:^(id<CountDownHandlerDataSource>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [weakSelf registerCountDownEventWithDataSource:obj];
+    }];
+}
+- (void) registerCountDownEventWithDataSource:(id<CountDownHandlerDataSource>)dataSource {
+    
+    if (!dataSource) {
+        return;
+    }
+    __weak typeof(dataSource) weakDataSource = dataSource;
+    __weak typeof(self) weakSelf = self;
+    if ([self getDataSourceStartCountDownTime:weakDataSource] < 0) {
+        [self setDataSourceStartCountDownTime:weakDataSource];
+    }
+    if([weakDataSource respondsToSelector:@selector(countDownHandler:andDataSourceCurrenUntil:)]) {
+        CGFloat currentUntil = weakSelf.currentTime - [weakSelf getDataSourceStartCountDownTime:weakDataSource];
+        [weakDataSource countDownHandler:weakSelf andDataSourceCurrenUntil:currentUntil];
+    }
+    if ([self.dataSources containsObject:dataSource]) {
+        return;
+    }
+  
+    [self lock:^{
+        [weakSelf.dataSources addObject:dataSource];
+    }];
+}
+
+- (void)registerCountDownEventWithDelegates:(NSArray<id<CountDownHandlerViewDelegate>> *)delegates {
     __weak typeof(self)weakSelf = self;
-    [delegates enumerateObjectsUsingBlock:^(id<CountDownHandlerDelegate>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [delegates enumerateObjectsUsingBlock:^(id<CountDownHandlerViewDelegate>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [weakSelf registerCountDownEventWithDelegate:obj];
     }];
 }
-- (void) registerCountDownEventWithDelegate: (id <CountDownHandlerDelegate>)delegate {
-    
+- (void) registerCountDownEventWithDelegate: (id <CountDownHandlerViewDelegate>)delegate{
+    if (!delegate) {
+        NSLog(@".\
+              \n   🌶：【%@】注册代理失败，代理为nil\
+              \n   🌶： 如果出现倒计时复用问题:\
+              \n     必须要在`registerCountDownEventWithDelegate`之前，保证delegate数据源存在\
+              \n   也就是确保`getViewDelegateMapDataSource`可以获取到正确的值\
+              \n.",NSStringFromClass([self class]));
+        return;
+    }
     __weak typeof(delegate) weakDelegate = delegate;
     __weak typeof(self) weakSelf = self;
-    if ([weakSelf getDelegateStartCountDownTime:weakDelegate] < 0) {
-        [weakSelf setDelegateStartCountDownTime:delegate];
-    }
-    if([weakDelegate respondsToSelector:@selector(countDownHandler:andCurrentUntil:)]) {
-        CGFloat currentUntil = weakSelf.currentTime - [weakSelf getDelegateStartCountDownTime:delegate];
-        [weakDelegate countDownHandler:weakSelf andCurrentUntil:currentUntil];
+    if([weakDelegate respondsToSelector:@selector(countDownHandler:andDataSource:)]) {
+        id <CountDownHandlerDataSource> dataSource;
+        if([weakDelegate respondsToSelector:@selector(getViewDelegateMapDataSource)]) {
+            [weakSelf registerCountDownEventWithDataSource:dataSource];
+            
+            dataSource = [weakDelegate getViewDelegateMapDataSource];
+            
+            if (!dataSource) {
+                [weakSelf logError_NotDataSource];
+            }
+            if ([dataSource respondsToSelector:@selector(countDownHandler:andDataSourceCurrenUntil:)]) {
+                CGFloat currentUntil = weakSelf.currentTime - [weakSelf getDataSourceStartCountDownTime:dataSource];
+                [dataSource countDownHandler:weakSelf andDataSourceCurrenUntil:currentUntil];
+            }
+        }
+        [weakDelegate countDownHandler:weakSelf andDataSource:dataSource];
     }
     if ([self.delegates containsObject:delegate]) {
         return;
     }
     
     if (self.delegates.count > self.targetMaxCount) {
-        [self endReceiveWithDelegate:self.delegates.firstObject];
+        [self removeDelegate:self.delegates.firstObject];
     }
     
     [self lock:^{
@@ -72,30 +119,46 @@ static NSString *const K_countDownHandler_startCountDown = @"K_countDownHandler_
     }];
 }
 
-- (void) endReceiveWithDelegate: (id)delegate {
-    if (!delegate) return;
+- (void) removeDelegate: (id)delegate {
+    if (!delegate) {
+        NSLog(@"\n🌶：【%@】注册代理失败，代理为nil\n",NSStringFromClass([self class]));
+        return;
+    }
     __weak typeof(self)weakSelf = self;
     [self lock:^{
         [weakSelf.delegates removeObject: delegate];
     }];
 }
+- (void)removeDataSource:(id<CountDownHandlerDataSource>)dataSource {
+    if (!dataSource) {
+        NSLog(@"\n🌶：【%@】注册代理dataSource，dataSource为nil\n",NSStringFromClass([self class]));
+        return;
+    }
+    __weak typeof(self)weakSelf = self;
+    [self lock:^{
+        [weakSelf.dataSources removeObject:dataSource];
+    }];
+}
 
 - (void)timerAction {
-    
     [self lock:^{
         self.currentTime += self.timeInterval;
         __weak typeof (self)weakSelf = self;
         
-        //        dispatch_queue_t q = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0);
-        
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.delegates enumerateObjectsUsingBlock:^(id<CountDownHandlerDelegate>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            [self.delegates enumerateObjectsUsingBlock:^(id<CountDownHandlerViewDelegate>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 
-                if ([obj respondsToSelector:@selector(countDownHandler:andCurrentUntil:)]) {
-                    //                    dispatch_async(dispatch_get_main_queue(), ^{
-                    CGFloat currentUntil = weakSelf.currentTime - [weakSelf getDelegateStartCountDownTime:obj];
-                    [obj countDownHandler:weakSelf andCurrentUntil:currentUntil];
-                    //                    });
+                if ([obj respondsToSelector:@selector(countDownHandler:andDataSource:)]) {
+                    id <CountDownHandlerDataSource>dataSource;
+                    if ([obj respondsToSelector:@selector(getViewDelegateMapDataSource)]) {
+                        dataSource = [obj getViewDelegateMapDataSource];
+                    }
+                    if ([dataSource respondsToSelector:@selector(countDownHandler:andDataSourceCurrenUntil:)]) {
+                        CGFloat currentUntil = weakSelf.currentTime - [weakSelf getDataSourceStartCountDownTime:dataSource];
+                        [dataSource countDownHandler:weakSelf andDataSourceCurrenUntil:currentUntil];
+                    }
+                    [obj countDownHandler:weakSelf andDataSource:dataSource];
                 }
             }];
         });
@@ -138,37 +201,73 @@ static NSString *const K_countDownHandler_startCountDown = @"K_countDownHandler_
 - (NSArray *) getCurrentDelegates {
     return self.delegates.copy;
 }
+- (NSArray *) getCurrentDataSource {
+    return self.dataSources.copy;
+}
 
 - (void) removeAllDelegate {
     __weak typeof(self)weakSelf = self;
-    [self.delegates enumerateObjectsUsingBlock:^(id<CountDownHandlerDelegate>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [weakSelf endReceiveWithDelegate:obj];
+    [self.delegates enumerateObjectsUsingBlock:^(id<CountDownHandlerViewDelegate>  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [weakSelf removeDelegate:obj];
+    }];
+}
+- (void)removeAllDataSource {
+    __weak typeof(self)weakSelf = self;
+    [self lock:^{
+        [weakSelf.dataSources removeAllObjects];
     }];
 }
 
 // MARK: - get && set
-- (NSMutableArray <id<CountDownHandlerDelegate>>*) delegates {
+- (NSMutableArray <id<CountDownHandlerViewDelegate>>*) delegates {
     if (!_delegates) {
         _delegates = [NSMutableArray new];
     }
     return _delegates;
 }
-
+- (NSMutableArray <id<CountDownHandlerDataSource>> *)dataSources {
+    if (!_dataSources) {
+        _dataSources = [NSMutableArray new];
+    }
+    return _dataSources;
+}
 - (dispatch_semaphore_t) semaphore {
     if (!_semaphore) {
         _semaphore = dispatch_semaphore_create(1);
     }
     return _semaphore;
 }
+//
+//- (void) setDelegateStartCountDownTime: (id<CountDownHandlerViewDelegate>)delegate {
+//    if (!delegate) return;
+//    objc_setAssociatedObject(delegate, &K_countDownHandler_startCountDown, @(self.currentTime), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+//}
+//- (CGFloat) getDelegateStartCountDownTime: (id<CountDownHandlerViewDelegate>)delegate {
+//    NSNumber *obj = objc_getAssociatedObject(delegate, &K_countDownHandler_startCountDown);
+//    if (![obj isKindOfClass:[NSNumber class]]) {
+//        return -1;
+//    }
+//    return obj.integerValue;
+//}
 
-- (void) setDelegateStartCountDownTime: (id<CountDownHandlerDelegate>)delegate {
-    objc_setAssociatedObject(delegate, &K_countDownHandler_startCountDown, @(self.currentTime), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void) setDataSourceStartCountDownTime: (id<CountDownHandlerDataSource>)dataSource {
+    if (!dataSource) return;
+    objc_setAssociatedObject(dataSource, &K_countDownHandler_startCountDown, @(self.currentTime), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-- (CGFloat) getDelegateStartCountDownTime: (id<CountDownHandlerDelegate>)delegate {
-    NSNumber *obj = objc_getAssociatedObject(delegate, &K_countDownHandler_startCountDown);
+- (CGFloat) getDataSourceStartCountDownTime: (id<CountDownHandlerDataSource>)dataSource {
+    NSNumber *obj = objc_getAssociatedObject(dataSource, &K_countDownHandler_startCountDown);
     if (![obj isKindOfClass:[NSNumber class]]) {
         return -1;
     }
     return obj.integerValue;
+}
+
+- (void) logError_NotDataSource {
+    
+        NSLog(@".\
+              \n   🌶：【%@】注册代理失败，代理为nil\
+              \n   🌶： 如果出现倒计时复用问题，必须要在`registerCountDownEventWithDelegate`之前，保证delegate数据源存在\
+              \n   也就是确保`getViewDelegateMapDataSource`可以获取到正确的值\
+              \n.",NSStringFromClass([self class]));
 }
 @end
