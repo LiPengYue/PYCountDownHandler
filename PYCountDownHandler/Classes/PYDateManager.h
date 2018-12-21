@@ -21,7 +21,7 @@ typedef enum : NSUInteger {
 + (instancetype) shared;
 
 /**返回较晚的时间*/
-+ (NSDate *)handleDaterRturnLaterDateWithData: (NSDate *)date andOtherDate: (NSDate *)otherDate;
++ (NSDate *)handleDaterRturnLaterDateWithData: (NSObject *)date andOtherDate: (NSObject *)otherDate andCompareType: (PYHandleCompareType)compareType;
 
 /**
  * 默认为公历
