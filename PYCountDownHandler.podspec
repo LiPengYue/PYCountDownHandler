@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'PYCountDownHandler'
-  s.version          = '0.2.0'
+  s.version          = '0.3.0'
   s.summary          = '关于倒计时的管理工具'
 
 
