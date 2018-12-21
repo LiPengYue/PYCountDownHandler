@@ -8,19 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		0433A562C2D3A3508184E4E8F528ABD2 /* Pods-PYCountDownHandler_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FE28455096101FE551BB37374127954B /* Pods-PYCountDownHandler_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07B4FBAA3B1DB4252B02539C0B05837C /* CountDownHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B628061EB39E046285DE9CABAE05CD4 /* CountDownHandler.m */; };
-		0A0F86679015BFCEA23832FF8A469CCE /* ReplaceMe.m in Sources */ = {isa = PBXBuildFile; fileRef = F17FC6B21332C0421AE7D7C7E668F0ED /* ReplaceMe.m */; };
-		2092D557696942D9021696A3A14B155D /* CountDownHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 77CBD5A1EEF61AFE1A254F8AADBA7607 /* CountDownHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		126B9D5F311846D4641E25C6CB6C9DBE /* PYCountDownHandler-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 881E36F9E4E72F0D3872510677148D2C /* PYCountDownHandler-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		16E25DCA28E0C8DE2E54C286FBF1A5A6 /* ReplaceMe.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A3168D968CC78FD3A1B16C291D33E2 /* ReplaceMe.m */; };
 		2552999FFF7F25E98F217167374B42FF /* Pods-PYCountDownHandler_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F27BBBFF9A5BA8C3E0FE23BDCF73E17 /* Pods-PYCountDownHandler_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		256F8C4E5C74767B03DFDA3ED8A760C9 /* PYDateManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 86AF62A4B6F8300F428B1F65D09CA33E /* PYDateManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		27B1E44E130315716FC710C2DAE0844C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */; };
-		27F3DA0CEAED66E47F0ABB1867FFCE6E /* PYDateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F8FF2AFBBAA1A035BC3D7D173996225 /* PYDateManager.m */; };
 		4A99AE0236FBB2FF4F8691F0FCD47E04 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */; };
-		7D5FC920D3BA080A789526E70BA37D8D /* PYCountDownHandler-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DE5BA3E516653D0D60B8E1182B5B79CB /* PYCountDownHandler-dummy.m */; };
+		6127F165E8CBE808F78264540ECC693C /* CountDownHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 332303E3C0D6ED2237074281ED5C3B1C /* CountDownHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A059735298B1887B7632A5888B3A204E /* Pods-PYCountDownHandler_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 318B45B7820F453F50C151D5260286D7 /* Pods-PYCountDownHandler_Tests-dummy.m */; };
 		A67C6438C33894F16F5637CA51887177 /* Pods-PYCountDownHandler_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AC417B3133EBA7B27D100E1675AA41D /* Pods-PYCountDownHandler_Example-dummy.m */; };
-		E6D1CD9E5B3D6FE4CB513032C1F7783C /* PYCountDownHandler-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 280F04E457C514743706103F6693890B /* PYCountDownHandler-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A6B53B9DD9D9D604373F908BA8EC922A /* CountDownHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 11ED5E76FB795BB261DF391C67DD0B70 /* CountDownHandler.m */; };
+		C680331A5AD4A8A9BA90902A0E217071 /* PYDateManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 00777E38EA030EFE3BBD544339DEB45C /* PYDateManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DD6E21D7D7C51C3F8FC6607DFC36A838 /* PYDateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96AECBE8B6A9D95A222DE4842B36626A /* PYDateManager.m */; };
 		F30C3C9751BABF829444CB31857D0DAA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */; };
+		F4C15F0E6D029A18DB0F8951F0F3D636 /* PYCountDownHandler-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2A1EAB6580B5A62F8EF17AC3849170 /* PYCountDownHandler-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,40 +41,40 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0A0A4B3B78D1C2C034627F2F8234E218 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		00777E38EA030EFE3BBD544339DEB45C /* PYDateManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PYDateManager.h; path = PYCountDownHandler/Classes/PYDateManager.h; sourceTree = "<group>"; };
 		0B6748DA8309161F27A44443272CED6B /* Pods-PYCountDownHandler_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PYCountDownHandler_Example-Info.plist"; sourceTree = "<group>"; };
+		0BF26C0AA698F8620B5DBDF3646BC29E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		11ED5E76FB795BB261DF391C67DD0B70 /* CountDownHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CountDownHandler.m; path = PYCountDownHandler/Classes/CountDownHandler.m; sourceTree = "<group>"; };
+		16CE81CEB4DA6EC38217E66B190D5B0A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		2192CB252C8394AD9BE37BEB2713B2A1 /* Pods-PYCountDownHandler_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PYCountDownHandler_Tests.modulemap"; sourceTree = "<group>"; };
-		22A8B86FFD354DE20908052DFE3DF94C /* PYCountDownHandler.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PYCountDownHandler.xcconfig; sourceTree = "<group>"; };
-		280F04E457C514743706103F6693890B /* PYCountDownHandler-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PYCountDownHandler-umbrella.h"; sourceTree = "<group>"; };
+		25A3168D968CC78FD3A1B16C291D33E2 /* ReplaceMe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ReplaceMe.m; path = PYCountDownHandler/Classes/ReplaceMe.m; sourceTree = "<group>"; };
 		2E71DDD3DC6A8F028B70FB66E9C3295B /* Pods-PYCountDownHandler_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PYCountDownHandler_Tests-Info.plist"; sourceTree = "<group>"; };
 		318B45B7820F453F50C151D5260286D7 /* Pods-PYCountDownHandler_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PYCountDownHandler_Tests-dummy.m"; sourceTree = "<group>"; };
+		332303E3C0D6ED2237074281ED5C3B1C /* CountDownHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CountDownHandler.h; path = PYCountDownHandler/Classes/CountDownHandler.h; sourceTree = "<group>"; };
 		3745705D1651470A297E8BC5437BB089 /* Pods-PYCountDownHandler_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PYCountDownHandler_Example.release.xcconfig"; sourceTree = "<group>"; };
 		4B0392A702CECDB8E9820062D843C738 /* Pods_PYCountDownHandler_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PYCountDownHandler_Example.framework; path = "Pods-PYCountDownHandler_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F27BBBFF9A5BA8C3E0FE23BDCF73E17 /* Pods-PYCountDownHandler_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PYCountDownHandler_Tests-umbrella.h"; sourceTree = "<group>"; };
-		561874BD70AD5B3DE5082D377C880B1E /* PYCountDownHandler-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "PYCountDownHandler-Info.plist"; sourceTree = "<group>"; };
+		5936272D6BE988C418F45D87CF5637AC /* PYCountDownHandler.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PYCountDownHandler.modulemap; sourceTree = "<group>"; };
 		5CAF6356A9E025F5F11DB2DC3BB079CB /* Pods-PYCountDownHandler_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PYCountDownHandler_Example-frameworks.sh"; sourceTree = "<group>"; };
-		69AA690B39687C4487E96A677F015028 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
-		6F8FF2AFBBAA1A035BC3D7D173996225 /* PYDateManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PYDateManager.m; sourceTree = "<group>"; };
 		70979274E3AECF2DB92AB32ED40A0360 /* PYCountDownHandler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PYCountDownHandler.framework; path = PYCountDownHandler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		736E7A2F1F7B5BF35C79AB50ACEB3031 /* PYCountDownHandler-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PYCountDownHandler-prefix.pch"; sourceTree = "<group>"; };
-		77CBD5A1EEF61AFE1A254F8AADBA7607 /* CountDownHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CountDownHandler.h; path = PYCountDownHandler/Classes/CountDownHandler.h; sourceTree = "<group>"; };
+		725BF3BBF19AE8223F48524933028628 /* PYCountDownHandler-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "PYCountDownHandler-Info.plist"; sourceTree = "<group>"; };
+		792BDFD8BFCB76E08F97FD82680F2D70 /* PYCountDownHandler-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PYCountDownHandler-prefix.pch"; sourceTree = "<group>"; };
 		7B53FEDD10FFDB07615FD26027E321CD /* Pods-PYCountDownHandler_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-PYCountDownHandler_Example.modulemap"; sourceTree = "<group>"; };
-		7B628061EB39E046285DE9CABAE05CD4 /* CountDownHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CountDownHandler.m; path = PYCountDownHandler/Classes/CountDownHandler.m; sourceTree = "<group>"; };
-		86AF62A4B6F8300F428B1F65D09CA33E /* PYDateManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PYDateManager.h; sourceTree = "<group>"; };
+		7E2A1EAB6580B5A62F8EF17AC3849170 /* PYCountDownHandler-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PYCountDownHandler-dummy.m"; sourceTree = "<group>"; };
 		86B97F4C7D49915215904E04702912F2 /* Pods-PYCountDownHandler_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PYCountDownHandler_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		881E36F9E4E72F0D3872510677148D2C /* PYCountDownHandler-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PYCountDownHandler-umbrella.h"; sourceTree = "<group>"; };
 		8A41CC4441785F1EA90A7B5DFD4BB251 /* Pods-PYCountDownHandler_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PYCountDownHandler_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		8AC417B3133EBA7B27D100E1675AA41D /* Pods-PYCountDownHandler_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PYCountDownHandler_Example-dummy.m"; sourceTree = "<group>"; };
 		90922780A4109CA3CE8A313514A49E17 /* Pods_PYCountDownHandler_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PYCountDownHandler_Tests.framework; path = "Pods-PYCountDownHandler_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		96AECBE8B6A9D95A222DE4842B36626A /* PYDateManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PYDateManager.m; path = PYCountDownHandler/Classes/PYDateManager.m; sourceTree = "<group>"; };
 		A9AA439CE0FEB9C7C2E64EE5D9A602DE /* Pods-PYCountDownHandler_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PYCountDownHandler_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		AE79C8B850E30DA53357C592D6F42212 /* PYCountDownHandler.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = PYCountDownHandler.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B04C152F26A4C9E33ADF2283B54656BE /* Pods-PYCountDownHandler_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PYCountDownHandler_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		B0B72D91C767BF0E1315AEAD5146F1E3 /* PYCountDownHandler.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PYCountDownHandler.modulemap; sourceTree = "<group>"; };
 		B36AB396275697EEE1A5B13BA8A38FE3 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		D0CDDFDB4B5D32D6F946F7BC386BBAC4 /* PYCountDownHandler.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = PYCountDownHandler.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		CCFDE7B703D9792194F9705900E8B96E /* PYCountDownHandler.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PYCountDownHandler.xcconfig; sourceTree = "<group>"; };
 		D4D54AF7310905C8201E23870957FFB7 /* Pods-PYCountDownHandler_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PYCountDownHandler_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		DE5BA3E516653D0D60B8E1182B5B79CB /* PYCountDownHandler-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PYCountDownHandler-dummy.m"; sourceTree = "<group>"; };
 		ED50C116E67B79826D0D4F8B07687B06 /* Pods-PYCountDownHandler_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PYCountDownHandler_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		F17FC6B21332C0421AE7D7C7E668F0ED /* ReplaceMe.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ReplaceMe.m; path = PYCountDownHandler/Classes/ReplaceMe.m; sourceTree = "<group>"; };
 		F81AFCB9254509F15E043DFDDA4F7127 /* Pods-PYCountDownHandler_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PYCountDownHandler_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		FE28455096101FE551BB37374127954B /* Pods-PYCountDownHandler_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PYCountDownHandler_Example-umbrella.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,14 +107,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		048DAFAD7B9AD2B51A295301EC0C17D1 /* Pod */ = {
+		059697C4967841AA2857B03690F4C5F4 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0A0A4B3B78D1C2C034627F2F8234E218 /* LICENSE */,
-				D0CDDFDB4B5D32D6F946F7BC386BBAC4 /* PYCountDownHandler.podspec */,
-				69AA690B39687C4487E96A677F015028 /* README.md */,
+				98A51CDA3ABEB1AC7731369AA790D650 /* PYCountDownHandler */,
 			);
-			name = Pod;
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		1AA2D2FC8CAC3486FDCFCE7BE2FC6703 /* Pods-PYCountDownHandler_Tests */ = {
@@ -131,20 +129,6 @@
 			);
 			name = "Pods-PYCountDownHandler_Tests";
 			path = "Target Support Files/Pods-PYCountDownHandler_Tests";
-			sourceTree = "<group>";
-		};
-		20EF71A15460B600A4718E6E648D3376 /* PYCountDownHandler */ = {
-			isa = PBXGroup;
-			children = (
-				77CBD5A1EEF61AFE1A254F8AADBA7607 /* CountDownHandler.h */,
-				7B628061EB39E046285DE9CABAE05CD4 /* CountDownHandler.m */,
-				F17FC6B21332C0421AE7D7C7E668F0ED /* ReplaceMe.m */,
-				EA377F6BCBD2CBF19C16CFAD6313B89E /* DataHandler */,
-				048DAFAD7B9AD2B51A295301EC0C17D1 /* Pod */,
-				E501B02537E8079E1E8D22B77524FDC0 /* Support Files */,
-			);
-			name = PYCountDownHandler;
-			path = ../..;
 			sourceTree = "<group>";
 		};
 		2C363E472A263425BCACE1B320CA99AD /* Products */ = {
@@ -164,14 +148,6 @@
 				1AA2D2FC8CAC3486FDCFCE7BE2FC6703 /* Pods-PYCountDownHandler_Tests */,
 			);
 			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		38CB3B48BD974E1A67D71B99089C73C4 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				20EF71A15460B600A4718E6E648D3376 /* PYCountDownHandler */,
-			);
-			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		3BAF032103CD5D83A2EB2E7E25598E72 /* Pods-PYCountDownHandler_Example */ = {
@@ -203,11 +179,50 @@
 			isa = PBXGroup;
 			children = (
 				B36AB396275697EEE1A5B13BA8A38FE3 /* Podfile */,
-				38CB3B48BD974E1A67D71B99089C73C4 /* Development Pods */,
+				059697C4967841AA2857B03690F4C5F4 /* Development Pods */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
 				2C363E472A263425BCACE1B320CA99AD /* Products */,
 				30318223298C2489704C3FDD1BEF675F /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		98A51CDA3ABEB1AC7731369AA790D650 /* PYCountDownHandler */ = {
+			isa = PBXGroup;
+			children = (
+				332303E3C0D6ED2237074281ED5C3B1C /* CountDownHandler.h */,
+				11ED5E76FB795BB261DF391C67DD0B70 /* CountDownHandler.m */,
+				00777E38EA030EFE3BBD544339DEB45C /* PYDateManager.h */,
+				96AECBE8B6A9D95A222DE4842B36626A /* PYDateManager.m */,
+				25A3168D968CC78FD3A1B16C291D33E2 /* ReplaceMe.m */,
+				ACDD78C6FAB015C3D94E86CDFC206C42 /* Pod */,
+				AC323E2B8CB4B5D65F93A48A93F37BE8 /* Support Files */,
+			);
+			name = PYCountDownHandler;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		AC323E2B8CB4B5D65F93A48A93F37BE8 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5936272D6BE988C418F45D87CF5637AC /* PYCountDownHandler.modulemap */,
+				CCFDE7B703D9792194F9705900E8B96E /* PYCountDownHandler.xcconfig */,
+				7E2A1EAB6580B5A62F8EF17AC3849170 /* PYCountDownHandler-dummy.m */,
+				725BF3BBF19AE8223F48524933028628 /* PYCountDownHandler-Info.plist */,
+				792BDFD8BFCB76E08F97FD82680F2D70 /* PYCountDownHandler-prefix.pch */,
+				881E36F9E4E72F0D3872510677148D2C /* PYCountDownHandler-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/PYCountDownHandler";
+			sourceTree = "<group>";
+		};
+		ACDD78C6FAB015C3D94E86CDFC206C42 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				0BF26C0AA698F8620B5DBDF3646BC29E /* LICENSE */,
+				AE79C8B850E30DA53357C592D6F42212 /* PYCountDownHandler.podspec */,
+				16CE81CEB4DA6EC38217E66B190D5B0A /* README.md */,
+			);
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -216,30 +231,6 @@
 				44D5347904CF754D6785B84253F2574A /* iOS */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		E501B02537E8079E1E8D22B77524FDC0 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				B0B72D91C767BF0E1315AEAD5146F1E3 /* PYCountDownHandler.modulemap */,
-				22A8B86FFD354DE20908052DFE3DF94C /* PYCountDownHandler.xcconfig */,
-				DE5BA3E516653D0D60B8E1182B5B79CB /* PYCountDownHandler-dummy.m */,
-				561874BD70AD5B3DE5082D377C880B1E /* PYCountDownHandler-Info.plist */,
-				736E7A2F1F7B5BF35C79AB50ACEB3031 /* PYCountDownHandler-prefix.pch */,
-				280F04E457C514743706103F6693890B /* PYCountDownHandler-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/PYCountDownHandler";
-			sourceTree = "<group>";
-		};
-		EA377F6BCBD2CBF19C16CFAD6313B89E /* DataHandler */ = {
-			isa = PBXGroup;
-			children = (
-				86AF62A4B6F8300F428B1F65D09CA33E /* PYDateManager.h */,
-				6F8FF2AFBBAA1A035BC3D7D173996225 /* PYDateManager.m */,
-			);
-			name = DataHandler;
-			path = PYCountDownHandler/Classes/DataHandler;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,21 +244,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		08EBFA8A8EA77F1AF716584E9DB281D0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6127F165E8CBE808F78264540ECC693C /* CountDownHandler.h in Headers */,
+				126B9D5F311846D4641E25C6CB6C9DBE /* PYCountDownHandler-umbrella.h in Headers */,
+				C680331A5AD4A8A9BA90902A0E217071 /* PYDateManager.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		090170C958F193A8D2BD0486123E5FD4 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				2552999FFF7F25E98F217167374B42FF /* Pods-PYCountDownHandler_Tests-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0F9C7D4E7ED8907C420FC60F174BF9AF /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2092D557696942D9021696A3A14B155D /* CountDownHandler.h in Headers */,
-				E6D1CD9E5B3D6FE4CB513032C1F7783C /* PYCountDownHandler-umbrella.h in Headers */,
-				256F8C4E5C74767B03DFDA3ED8A760C9 /* PYDateManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,8 +269,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 597484A9632524FFE6C520B7E59C89C0 /* Build configuration list for PBXNativeTarget "PYCountDownHandler" */;
 			buildPhases = (
-				0F9C7D4E7ED8907C420FC60F174BF9AF /* Headers */,
-				A7EC3059D7032917700F5774094464F7 /* Sources */,
+				08EBFA8A8EA77F1AF716584E9DB281D0 /* Headers */,
+				560773DE4D02A0365509EB5EEB3A61FB /* Sources */,
 				A19A55F6E82C7CBCB2763B17439BF44C /* Frameworks */,
 				96EFB75F683555A7497C76ABB545F946 /* Resources */,
 			);
@@ -383,14 +374,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A7EC3059D7032917700F5774094464F7 /* Sources */ = {
+		560773DE4D02A0365509EB5EEB3A61FB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07B4FBAA3B1DB4252B02539C0B05837C /* CountDownHandler.m in Sources */,
-				7D5FC920D3BA080A789526E70BA37D8D /* PYCountDownHandler-dummy.m in Sources */,
-				27F3DA0CEAED66E47F0ABB1867FFCE6E /* PYDateManager.m in Sources */,
-				0A0F86679015BFCEA23832FF8A469CCE /* ReplaceMe.m in Sources */,
+				A6B53B9DD9D9D604373F908BA8EC922A /* CountDownHandler.m in Sources */,
+				F4C15F0E6D029A18DB0F8951F0F3D636 /* PYCountDownHandler-dummy.m in Sources */,
+				DD6E21D7D7C51C3F8FC6607DFC36A838 /* PYDateManager.m in Sources */,
+				16E25DCA28E0C8DE2E54C286FBF1A5A6 /* ReplaceMe.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,7 +454,7 @@
 		};
 		648A9CB0A2DE840664F7FDEB35AABEF6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 22A8B86FFD354DE20908052DFE3DF94C /* PYCountDownHandler.xcconfig */;
+			baseConfigurationReference = CCFDE7B703D9792194F9705900E8B96E /* PYCountDownHandler.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -684,7 +675,7 @@
 		};
 		EFFC515EF8AF6063552C7AD8605F1068 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 22A8B86FFD354DE20908052DFE3DF94C /* PYCountDownHandler.xcconfig */;
+			baseConfigurationReference = CCFDE7B703D9792194F9705900E8B96E /* PYCountDownHandler.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
