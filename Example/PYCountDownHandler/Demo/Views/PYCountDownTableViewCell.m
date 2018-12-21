@@ -7,9 +7,8 @@
 //
 
 #import "PYCountDownTableViewCell.h"
-#import "CountDownHandler.h"
 #import "PYCountDownModel.h"
-#import "PYDateManager.h"
+#import <CountDownHandler.h>
 
 @interface PYCountDownTableViewCell ()
 @property (nonatomic,strong) UILabel *countDownLabel;
