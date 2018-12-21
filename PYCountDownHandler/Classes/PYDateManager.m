@@ -30,7 +30,7 @@ static PYDateManager *_instancetype;
 }
 
 #pragma mark - 返回较晚(或较早时间)的时间
-+ (NSDate *)laterDateWithData: (NSObject *)date andOtherDate: (NSObject *)otherDate andCompareType: (PYHandleCompareType)compareType{
++ (NSDate *)handleDaterRturnLaterDateWithData: (NSObject *)date andOtherDate: (NSObject *)otherDate andCompareType: (PYHandleCompareType)compareType{
     NSDate *dateOne = [[self shared] returnDateWithOBJ:date andDateFormatter:nil];
     NSDate *dateTwo = [[self shared] returnDateWithOBJ:otherDate andDateFormatter:nil];
     //返回时间对象
