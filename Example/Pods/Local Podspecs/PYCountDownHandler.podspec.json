@@ -1,6 +1,6 @@
 {
   "name": "PYCountDownHandler",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "summary": "关于倒计时的管理工具",
   "description": "高性能列表 倒计时的管理工具",
   "homepage": "https://github.com/LiPengYue/PYCountDownHandler",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/LiPengYue/PYCountDownHandler.git",
-    "tag": "0.2.0"
+    "tag": "0.3.0"
   },
   "platforms": {
     "ios": "8.0"
