@@ -11,9 +11,11 @@
 @class PYCountDownTableViewCell;
 #include "CountDownHandler.h"
 @interface PYCountDownModel : NSObject<CountDownHandlerDataSource>
+/// 倒计时总时间
 @property (nonatomic,assign) NSInteger countDownNum;
+///是否显示倒计时
 @property (nonatomic,assign) NSInteger isShowCountDown;
+///当前的倒计时剩余时间
 @property (nonatomic,assign) CGFloat currentCountDown;
-//- (void) didSetCountDownNumFunc: (void(^)(void))block;
-//- (void) countDownFunc: (void(^)(CountDownHandler *handler)) block;
+
 @end

@@ -15,19 +15,9 @@
 @end
 @implementation PYCountDownModel
 
-- (void) didSetCountDownNumFunc: (void(^)(void))block {
-    self.didSetCountDownNumBlock = block;
-}
-
 - (void)dealloc {
     NSLog(@"✅销毁：%@",NSStringFromClass([self class]));
 }
-//- (void)countDownHandler:(CountDownHandler *)handler andCurrentUntil:(CGFloat)until{
-//    self.currentCountDown = until;
-//    if (self.didSetCountDownNumBlock) {
-//        self.didSetCountDownNumBlock();
-//    }
-//}
 
 - (void)countDownHandler:(CountDownHandler *)handler andDataSourceCurrenUntil:(CGFloat)until {
     self.currentCountDown = self.countDownNum - until;
