@@ -10,6 +10,19 @@
 #import "PYDateManager.h"
 
 /**
+ * CountDownHandler 有两种代理
+ > 1. 利用`registerCountDownEventWithDataSources` 储存modelArray
+  其中modelArray中的model必须继承CountDownHandlerDataSource代理
+  在储存modelArray数组时，会向model中添加一个CGFlaot属性（countDownHandler_startCountDown），用来记录此时 CountDownHandler 计时器已经计时时间（currentTime）。
+  countDownHandler_startCountDown： 在计算剩余倒计时时间时，会用到。 剩余时间 = model的总倒计时时间-(CountDownHandler.currentTime - countDownHandler_startCountDown);
+ 
+ > 2. 利用`CountDownHandlerViewDelegate`刷新UI
+
+ 
+ */
+
+
+/**
  倒计时工具
  @warning  需要自行保证CountDownHandler生命周期
  @warning  如果需求为 tableView的cell中有倒计时:
@@ -28,7 +41,7 @@
 /** 针对于视图的delegate方法 */
 @protocol CountDownHandlerViewDelegate<NSObject>
 /**
- 倒计时回调,当`registerCountDownEventWithDelegate`调用的时候，会主动触发一次,用来刷新UI
+ 在每次倒计时事件触发后调用与调用`registerCountDownEventWithDelegate`后都会触发代理方法`- (void) countDownHandler: (CountDownHandler *)handler andDataSource: (id <CountDownHandlerDataSource>)dataSource;`
  */
 - (void) countDownHandler: (CountDownHandler *)handler andDataSource: (id <CountDownHandlerDataSource>)dataSource;
 
