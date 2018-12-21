@@ -166,8 +166,8 @@ UITableViewDataSource
     
     if ([cell isKindOfClass:[PYCountDownTableViewCell class]]) {
         PYCountDownModel *model = self.modelArray[indexPath.row];
-        [self.countDownHandler registerCountDownEventWithDelegate:cell];
         cell.model = model;
+        [self.countDownHandler registerCountDownEventWithDelegate:cell];
     }
     return cell;
 }
